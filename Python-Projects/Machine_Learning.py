@@ -1,4 +1,3 @@
-#Nomes : João Vitor Santos Neres RM95395 e Lucas Cesar Lintz Garbeloto RM94370
 #Labels
 # 0 = Glicemia Normal
 # 1 = Tolerância a glicose diminuida
@@ -7,12 +6,14 @@
 # Primeiro - Jejum 
 # Segundo - Pós-Sobrecarga 
 # Terceiro - Glicemia Casual
+
 from sklearn import tree
 from random import randint
 from pyfiglet import Figlet
 import fade
 from tqdm import tqdm
 import time
+
 #Glicemia Normal
 #Tolerância a glicose Diminuida
 #Diabetes
@@ -30,6 +31,7 @@ sobrecarga = float(input("Quantos mg/dL após Sobrecarga: "))
 diadia = float(input("Quantos mg/dL em qualquer hora do dia: "))
 
 for x in range(0,1000):
+    
     jejum1 = randint(50,95)
     sobrecarga1= randint(90,135)
     diatodo1 = randint(100,195)
@@ -46,13 +48,22 @@ for x in range(0,1000):
     x = classif.predict([[jejum, sobrecarga, diadia]])
 
 print('Carregando resultado...')
+
 for i in tqdm(range(50), colour = "blue"):
+    
     time.sleep(0.05)
 
 if x == 0:
+    
     print("\33[32;1mVocê tem Glicemia Normal\33[m")
+
 elif x == 1:
+    
     print("\33[33;1mVocê tem tolerância a glicose diminuida\33[m")
+
 else:
+    
     print("\33[31;1mVocê tem Diabetes Mellitus\33[m")
     print("\33[1mConsulte um médico especializado para mais informações\33[m")
+    
+    
